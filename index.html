@@ -3,8 +3,755 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>I Love You🫀</title>
+    <title>Happy Mother's Day 💕</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <link href="css/style.css" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              script: ['"Dancing Script"', "cursive"],
+              sans: ["Quicksand", "sans-serif"],
+            },
+            colors: {
+              rose1: "#ffe0ec",
+              rose2: "#ffb3d1",
+              rose3: "#ff6fa6",
+              plum: "#7a3b69",
+            },
+            animation: {
+              "float-up": "floatUp 8s linear infinite",
+              wiggle: "wiggle 1.2s ease-in-out infinite",
+              pop: "pop 0.6s ease-out",
+              "bounce-slow": "bounce 2.5s infinite",
+              "spin-slow": "spin 8s linear infinite",
+            },
+            keyframes: {
+              floatUp: {
+                "0%": {
+                  transform: "translateY(100vh) scale(0.6) rotate(0deg)",
+                  opacity: "0",
+                },
+                "10%": { opacity: "0.9" },
+                "90%": { opacity: "0.9" },
+                "100%": {
+                  transform: "translateY(-10vh) scale(1.2) rotate(360deg)",
+                  opacity: "0",
+                },
+              },
+              wiggle: {
+                "0%,100%": { transform: "rotate(-3deg)" },
+                "50%": { transform: "rotate(3deg)" },
+              },
+              pop: {
+                "0%": { transform: "scale(0.5)", opacity: "0" },
+                "60%": { transform: "scale(1.15)", opacity: "1" },
+                "100%": { transform: "scale(1)", opacity: "1" },
+              },
+            },
+          },
+        },
+      };
+    </script>
   </head>
-  <body></body>
+  <body
+    class="font-sans bg-gradient-to-br from-rose1 via-pink-100 to-purple-100 min-h-screen text-plum overflow-x-hidden"
+  >
+    <!-- floating heart background -->
+    <div
+      id="hearts"
+      class="fixed inset-0 pointer-events-none z-0"
+      aria-hidden="true"
+    ></div>
+
+    <!-- confetti canvas -->
+    <canvas
+      id="confetti"
+      class="fixed inset-0 pointer-events-none z-50"
+    ></canvas>
+
+    <!-- HERO -->
+    <header class="relative z-10 text-center pt-16 pb-10 px-4">
+      <div class="inline-block animate-bounce-slow text-6xl md:text-8xl">
+        💐
+      </div>
+      <h1
+        class="font-script text-5xl md:text-7xl text-rose3 drop-shadow-sm mt-4"
+      >
+        Happy Mother's Day
+      </h1>
+      <p class="mt-4 text-lg md:text-xl text-plum/80">
+        To the women who raised me with love 💕
+      </p>
+      <button
+        id="confetti-btn"
+        class="mt-6 bg-rose3 hover:bg-rose-500 active:scale-95 transition text-white font-semibold px-6 py-3 rounded-full shadow-lg animate-wiggle"
+      >
+        🎉 Tap for love bombs 🎉
+      </button>
+    </header>
+
+    <!-- TABS -->
+    <nav
+      class="relative z-10 flex justify-center gap-2 md:gap-4 px-4 flex-wrap"
+    >
+      <button
+        data-tab="mom"
+        class="tab-btn px-5 py-2 rounded-full bg-white/70 backdrop-blur shadow font-semibold hover:bg-rose2 hover:text-white transition"
+      >
+        Mom 💖
+      </button>
+      <button
+        data-tab="grandma"
+        class="tab-btn px-5 py-2 rounded-full bg-white/70 backdrop-blur shadow font-semibold hover:bg-rose2 hover:text-white transition"
+      >
+        Grandma 🌷
+      </button>
+      <button
+        data-tab="abuelita"
+        class="tab-btn px-5 py-2 rounded-full bg-white/70 backdrop-blur shadow font-semibold hover:bg-rose2 hover:text-white transition"
+      >
+        Abuelita 🌹
+      </button>
+    </nav>
+
+    <main class="relative z-10 max-w-4xl mx-auto px-4 py-10">
+      <!-- ===== MOM ===== -->
+      <section data-panel="mom" class="panel space-y-10 animate-pop">
+        <div
+          class="bg-white/80 backdrop-blur rounded-3xl shadow-xl p-6 md:p-10 border-4 border-rose2/40"
+        >
+          <h2 class="font-script text-4xl md:text-5xl text-rose3 mb-4">
+            Dear Mom,
+          </h2>
+          <p class="leading-relaxed text-lg">
+            <!-- TODO: write your letter to Mom here -->
+            Thank you for every sacrifice, every late night, every hug. You
+            taught me what love looks like and I carry it with me every day.
+            There aren't enough words — but here are a few, just for you. I love
+            you more than the moon and back. 🌙💕
+          </p>
+        </div>
+
+        <div
+          class="bg-white/80 backdrop-blur rounded-3xl shadow-xl p-6 md:p-10"
+        >
+          <h3 class="font-script text-3xl text-rose3 mb-4">
+            📸 Us, through the years
+          </h3>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <!-- replace src with your photos in img/ -->
+            <img
+              src="img/mom1.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-rose1 flex items-center justify-center text-4xl',
+                    textContent: '🌸',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+            <img
+              src="img/mom2.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-rose1 flex items-center justify-center text-4xl',
+                    textContent: '💐',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+            <img
+              src="img/mom3.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-rose1 flex items-center justify-center text-4xl',
+                    textContent: '💖',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+            <img
+              src="img/mom4.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-rose1 flex items-center justify-center text-4xl',
+                    textContent: '🌷',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+            <img
+              src="img/mom5.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-rose1 flex items-center justify-center text-4xl',
+                    textContent: '🌹',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+            <img
+              src="img/mom6.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-rose1 flex items-center justify-center text-4xl',
+                    textContent: '✨',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+          </div>
+          <p class="mt-3 text-sm text-plum/60">
+            Drop photos in
+            <code class="bg-rose1 px-1 rounded">img/mom1.jpg</code> …
+            <code class="bg-rose1 px-1 rounded">mom6.jpg</code>
+          </p>
+        </div>
+
+        <div
+          class="bg-white/80 backdrop-blur rounded-3xl shadow-xl p-6 md:p-10"
+        >
+          <h3 class="font-script text-3xl text-rose3 mb-4">
+            💝 Why I love you
+          </h3>
+          <ol class="space-y-2 text-lg">
+            <li class="flex gap-3">
+              <span>🌟</span><span>You always know what to say.</span>
+            </li>
+            <li class="flex gap-3">
+              <span>🍳</span><span>Your cooking tastes like home.</span>
+            </li>
+            <li class="flex gap-3">
+              <span>🤗</span><span>Your hugs fix everything.</span>
+            </li>
+            <li class="flex gap-3">
+              <span>📞</span
+              ><span>You answer every call, no matter the hour.</span>
+            </li>
+            <li class="flex gap-3">
+              <span>💪</span><span>You're the strongest person I know.</span>
+            </li>
+            <li class="flex gap-3">
+              <span>😂</span><span>You make me laugh until I cry.</span>
+            </li>
+          </ol>
+        </div>
+
+        <div
+          class="bg-white/80 backdrop-blur rounded-3xl shadow-xl p-6 md:p-10"
+        >
+          <h3 class="font-script text-3xl text-rose3 mb-4">🕰️ Our memories</h3>
+          <ul class="relative border-l-4 border-rose2 pl-6 space-y-6">
+            <li>
+              <span
+                class="absolute -left-3 w-6 h-6 bg-rose3 rounded-full flex items-center justify-center text-white text-xs"
+                >🎂</span
+              >
+              <h4 class="font-bold">The first birthday cake you baked me</h4>
+              <p class="text-plum/70">
+                Lopsided, frosting everywhere, perfect.
+              </p>
+            </li>
+            <li>
+              <span
+                class="absolute -left-3 w-6 h-6 bg-rose3 rounded-full flex items-center justify-center text-white text-xs"
+                >🏖️</span
+              >
+              <h4 class="font-bold">That summer road trip</h4>
+              <p class="text-plum/70">Singing in the car, windows down.</p>
+            </li>
+            <li>
+              <span
+                class="absolute -left-3 w-6 h-6 bg-rose3 rounded-full flex items-center justify-center text-white text-xs"
+                >🎓</span
+              >
+              <h4 class="font-bold">You at my graduation</h4>
+              <p class="text-plum/70">Crying louder than me.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== GRANDMA ===== -->
+      <section data-panel="grandma" class="panel space-y-10 hidden animate-pop">
+        <div
+          class="bg-white/80 backdrop-blur rounded-3xl shadow-xl p-6 md:p-10 border-4 border-purple-300/40"
+        >
+          <h2 class="font-script text-4xl md:text-5xl text-purple-500 mb-4">
+            Dear Grandma,
+          </h2>
+          <p class="leading-relaxed text-lg">
+            <!-- TODO: write your letter to Grandma here -->
+            You're the gentle heart of our family. Your stories, your patience,
+            your warm kitchen — they shaped me. Thank you for loving me so
+            quietly and so completely. 🌷
+          </p>
+        </div>
+
+        <div
+          class="bg-white/80 backdrop-blur rounded-3xl shadow-xl p-6 md:p-10"
+        >
+          <h3 class="font-script text-3xl text-purple-500 mb-4">
+            📸 Through the years
+          </h3>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <img
+              src="img/grandma1.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-purple-100 flex items-center justify-center text-4xl',
+                    textContent: '🌷',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+            <img
+              src="img/grandma2.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-purple-100 flex items-center justify-center text-4xl',
+                    textContent: '🫖',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+            <img
+              src="img/grandma3.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-purple-100 flex items-center justify-center text-4xl',
+                    textContent: '💜',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+            <img
+              src="img/grandma4.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-purple-100 flex items-center justify-center text-4xl',
+                    textContent: '🍪',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+            <img
+              src="img/grandma5.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-purple-100 flex items-center justify-center text-4xl',
+                    textContent: '🌸',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+            <img
+              src="img/grandma6.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-purple-100 flex items-center justify-center text-4xl',
+                    textContent: '✨',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+          </div>
+        </div>
+
+        <div
+          class="bg-white/80 backdrop-blur rounded-3xl shadow-xl p-6 md:p-10"
+        >
+          <h3 class="font-script text-3xl text-purple-500 mb-4">
+            💝 Why I love you
+          </h3>
+          <ol class="space-y-2 text-lg">
+            <li class="flex gap-3">
+              <span>🍪</span><span>You keep the cookie jar full.</span>
+            </li>
+            <li class="flex gap-3">
+              <span>📖</span><span>You tell the best stories.</span>
+            </li>
+            <li class="flex gap-3">
+              <span>🧶</span><span>Every gift is hand-made with love.</span>
+            </li>
+            <li class="flex gap-3">
+              <span>🤍</span><span>Your kindness is endless.</span>
+            </li>
+          </ol>
+        </div>
+
+        <div
+          class="bg-white/80 backdrop-blur rounded-3xl shadow-xl p-6 md:p-10"
+        >
+          <h3 class="font-script text-3xl text-purple-500 mb-4">🕰️ Memories</h3>
+          <ul class="relative border-l-4 border-purple-300 pl-6 space-y-6">
+            <li>
+              <span
+                class="absolute -left-3 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs"
+                >🏡</span
+              >
+              <h4 class="font-bold">Sleepovers at your house</h4>
+              <p class="text-plum/70">Cartoons and pancakes in the morning.</p>
+            </li>
+            <li>
+              <span
+                class="absolute -left-3 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs"
+                >🎄</span
+              >
+              <h4 class="font-bold">Holidays with the whole family</h4>
+              <p class="text-plum/70">You at the head of the table.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== ABUELITA ===== -->
+      <section
+        data-panel="abuelita"
+        class="panel space-y-10 hidden animate-pop"
+      >
+        <div
+          class="bg-white/80 backdrop-blur rounded-3xl shadow-xl p-6 md:p-10 border-4 border-amber-300/50"
+        >
+          <h2 class="font-script text-4xl md:text-5xl text-amber-600 mb-4">
+            Querida Abuelita,
+          </h2>
+          <p class="leading-relaxed text-lg">
+            <!-- TODO: write your letter to Abuelita here -->
+            Gracias por todo tu amor, tus oraciones, y tu sabiduría. Tu casa
+            siempre huele a cariño y a comida buena. Eres la raíz de nuestra
+            familia y te amo con todo mi corazón. 🌹
+          </p>
+          <p class="leading-relaxed text-base text-plum/70 mt-3 italic">
+            Thank you for all your love, your prayers, and your wisdom. You are
+            the root of our family and I love you with all my heart.
+          </p>
+        </div>
+
+        <div
+          class="bg-white/80 backdrop-blur rounded-3xl shadow-xl p-6 md:p-10"
+        >
+          <h3 class="font-script text-3xl text-amber-600 mb-4">
+            📸 A través de los años
+          </h3>
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+            <img
+              src="img/abuelita1.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-amber-100 flex items-center justify-center text-4xl',
+                    textContent: '🌹',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+            <img
+              src="img/abuelita2.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-amber-100 flex items-center justify-center text-4xl',
+                    textContent: '🌻',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+            <img
+              src="img/abuelita3.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-amber-100 flex items-center justify-center text-4xl',
+                    textContent: '🌮',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+            <img
+              src="img/abuelita4.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-amber-100 flex items-center justify-center text-4xl',
+                    textContent: '❤️',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+            <img
+              src="img/abuelita5.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-amber-100 flex items-center justify-center text-4xl',
+                    textContent: '🌼',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+            <img
+              src="img/abuelita6.jpg"
+              alt=""
+              onerror="
+                this.replaceWith(
+                  Object.assign(document.createElement('div'), {
+                    className:
+                      'aspect-square rounded-2xl bg-amber-100 flex items-center justify-center text-4xl',
+                    textContent: '✨',
+                  }),
+                )
+              "
+              class="aspect-square object-cover rounded-2xl shadow hover:scale-105 transition"
+            />
+          </div>
+        </div>
+
+        <div
+          class="bg-white/80 backdrop-blur rounded-3xl shadow-xl p-6 md:p-10"
+        >
+          <h3 class="font-script text-3xl text-amber-600 mb-4">
+            💝 Por qué te amo
+          </h3>
+          <ol class="space-y-2 text-lg">
+            <li class="flex gap-3">
+              <span>🌮</span><span>Tu comida es la mejor del mundo.</span>
+            </li>
+            <li class="flex gap-3">
+              <span>🙏</span><span>Tus oraciones me cuidan.</span>
+            </li>
+            <li class="flex gap-3">
+              <span>💃</span><span>Bailas con todo tu corazón.</span>
+            </li>
+            <li class="flex gap-3">
+              <span>📿</span><span>Tu fe inspira a toda la familia.</span>
+            </li>
+            <li class="flex gap-3">
+              <span>😘</span
+              ><span>Nunca te vas sin un beso y una bendición.</span>
+            </li>
+          </ol>
+        </div>
+
+        <div
+          class="bg-white/80 backdrop-blur rounded-3xl shadow-xl p-6 md:p-10"
+        >
+          <h3 class="font-script text-3xl text-amber-600 mb-4">🕰️ Recuerdos</h3>
+          <ul class="relative border-l-4 border-amber-300 pl-6 space-y-6">
+            <li>
+              <span
+                class="absolute -left-3 w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center text-white text-xs"
+                >🌽</span
+              >
+              <h4 class="font-bold">Las tortillas hechas a mano</h4>
+              <p class="text-plum/70">Saliendo calientitas del comal.</p>
+            </li>
+            <li>
+              <span
+                class="absolute -left-3 w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center text-white text-xs"
+                >🎶</span
+              >
+              <h4 class="font-bold">Música en la cocina</h4>
+              <p class="text-plum/70">Cantando mientras cocinabas.</p>
+            </li>
+            <li>
+              <span
+                class="absolute -left-3 w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center text-white text-xs"
+                >🙏</span
+              >
+              <h4 class="font-bold">Tus bendiciones</h4>
+              <p class="text-plum/70">Cada vez que salía de tu casa.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="relative z-10 text-center py-10 text-plum/70">
+      <p class="font-script text-2xl">Made with 💕 — Happy Mother's Day 2026</p>
+    </footer>
+
+    <script>
+      // floating hearts background
+      (function () {
+        const layer = document.getElementById("hearts");
+        const emojis = ["💖", "💕", "🌸", "🌷", "🌹", "💐", "💗", "✨"];
+        function spawn() {
+          const el = document.createElement("span");
+          el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+          el.className = "absolute text-2xl md:text-4xl animate-float-up";
+          el.style.left = Math.random() * 100 + "vw";
+          el.style.animationDuration = 6 + Math.random() * 6 + "s";
+          el.style.animationDelay = Math.random() * 2 + "s";
+          layer.appendChild(el);
+          setTimeout(() => el.remove(), 12000);
+        }
+        for (let i = 0; i < 12; i++) setTimeout(spawn, i * 600);
+        setInterval(spawn, 700);
+      })();
+
+      // tabs
+      (function () {
+        const buttons = document.querySelectorAll(".tab-btn");
+        const panels = document.querySelectorAll(".panel");
+        function activate(name) {
+          panels.forEach((p) =>
+            p.classList.toggle("hidden", p.dataset.panel !== name),
+          );
+          buttons.forEach((b) => {
+            const on = b.dataset.tab === name;
+            b.classList.toggle("bg-rose3", on);
+            b.classList.toggle("text-white", on);
+            b.classList.toggle("bg-white/70", !on);
+          });
+          // restart pop animation
+          const active = document.querySelector(`[data-panel="${name}"]`);
+          active.classList.remove("animate-pop");
+          void active.offsetWidth;
+          active.classList.add("animate-pop");
+        }
+        buttons.forEach((b) =>
+          b.addEventListener("click", () => activate(b.dataset.tab)),
+        );
+        activate("mom");
+      })();
+
+      // confetti
+      (function () {
+        const canvas = document.getElementById("confetti");
+        const ctx = canvas.getContext("2d");
+        function resize() {
+          canvas.width = innerWidth;
+          canvas.height = innerHeight;
+        }
+        resize();
+        addEventListener("resize", resize);
+        const particles = [];
+        const shapes = ["💖", "💕", "🌸", "🌹", "✨", "💗"];
+        function burst(x, y) {
+          for (let i = 0; i < 40; i++) {
+            particles.push({
+              x,
+              y,
+              vx: (Math.random() - 0.5) * 10,
+              vy: Math.random() * -10 - 4,
+              g: 0.25,
+              life: 80 + Math.random() * 40,
+              size: 18 + Math.random() * 18,
+              char: shapes[Math.floor(Math.random() * shapes.length)],
+              rot: Math.random() * Math.PI * 2,
+              vr: (Math.random() - 0.5) * 0.2,
+            });
+          }
+        }
+        function tick() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          for (let i = particles.length - 1; i >= 0; i--) {
+            const p = particles[i];
+            p.vy += p.g;
+            p.x += p.vx;
+            p.y += p.vy;
+            p.rot += p.vr;
+            p.life--;
+            if (p.life <= 0 || p.y > canvas.height + 40) {
+              particles.splice(i, 1);
+              continue;
+            }
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.rot);
+            ctx.font = p.size + "px serif";
+            ctx.textAlign = "center";
+            ctx.fillText(p.char, 0, 0);
+            ctx.restore();
+          }
+          requestAnimationFrame(tick);
+        }
+        tick();
+        document
+          .getElementById("confetti-btn")
+          .addEventListener("click", () => {
+            burst(innerWidth / 2, innerHeight / 2);
+            burst(innerWidth * 0.25, innerHeight / 2);
+            burst(innerWidth * 0.75, innerHeight / 2);
+          });
+        // surprise burst on tab change
+        document.querySelectorAll(".tab-btn").forEach((b) => {
+          b.addEventListener("click", (e) => {
+            const r = e.target.getBoundingClientRect();
+            burst(r.left + r.width / 2, r.top + r.height / 2);
+          });
+        });
+      })();
+    </script>
+  </body>
 </html>

@@ -1,1 +1,6 @@
-/* Mother's Day page styles */
+/* Mother's Day page styles — Tailwind via CDN handles most styles.
+   Keep this file for any overrides you want. */
+
+html { scroll-behavior: smooth; }
+body { -webkit-tap-highlight-color: transparent; }
+
